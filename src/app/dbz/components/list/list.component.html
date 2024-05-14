@@ -1,0 +1,29 @@
+<h3>Listado</h3>
+<ul class="list-group">
+  <li *ngFor="let character of characterList;
+  let i = index;
+  let isFrist = first;
+  let isLast = last;
+  let isEven = even;
+  let isOdd = odd"
+  class="list-group-item d-flex justify-content-between align-center"
+  [ngClass]="{
+    'list-group-item-info': isOdd,
+    'list-group-item-warning': isEven
+  }">
+
+  <div>
+    <span class="text-primary">{{ i + 1}}. </span>
+    <span>{{ character.name }} </span>
+    <strong>power: </strong>
+    <span>{{ character.power }}</span>
+  </div>
+
+
+    <!-- <span>Es el primero: {{ isFrist }}</span>
+    <span>Es el ultimo:{{ isLast }} </span>
+    <span>Es par: {{ isEven }}</span>
+    <span>Es impar: {{ isOdd }}</span> -->
+    <button class="btn btn-outline-danger" (click)='onDeleteCharacter(character.id)'>X</button>
+  </li>
+</ul>
